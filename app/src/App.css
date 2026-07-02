@@ -89,3 +89,64 @@ button {
 button:hover {
   background: #7dd3fc;
 }
+
+.dashboard-shell {
+  min-height: 100vh;
+  padding: 48px;
+  background:
+    radial-gradient(circle at top right, rgba(56, 189, 248, 0.18), transparent 32%),
+    #050816;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.operator-badge {
+  border: 1px solid #334155;
+  background: #111827;
+  border-radius: 999px;
+  padding: 12px 18px;
+  color: #e2e8f0;
+  font-weight: 700;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.metric-card {
+  background: #111827;
+  border: 1px solid #334155;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.metric-card span {
+  display: block;
+  color: #94a3b8;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.metric-card strong {
+  display: block;
+  color: #ffffff;
+  font-size: 42px;
+  margin-bottom: 8px;
+}
+
+.metric-card p {
+  color: #cbd5e1;
+  margin: 0;
+}
+
+.metric-card.alert {
+  border-color: #f97316;
+}

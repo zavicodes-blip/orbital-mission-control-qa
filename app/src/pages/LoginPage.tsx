@@ -1,4 +1,13 @@
-function LoginPage() {
+interface LoginPageProps {
+  onLogin: () => void
+}
+
+function LoginPage({ onLogin }: LoginPageProps) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    onLogin()
+  }
+
   return (
     <main className="app-shell">
       <section className="login-card">
@@ -10,7 +19,7 @@ function LoginPage() {
           Secure access portal for spacecraft operations, mission status, and telemetry monitoring.
         </p>
 
-        <form className="login-form">
+        <form className="login-form" onSubmit={handleSubmit}>
           <label>
             Username
             <input type="text" placeholder="operator@mission.local" />
