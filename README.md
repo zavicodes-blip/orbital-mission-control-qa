@@ -126,6 +126,10 @@ Password: orbit123
 
 ![Playwright Report Login Validation V1](./screenshots/playwright-report-login-validation-v1.png)
 
+### GitHub Actions CI
+
+![GitHub Actions CI V1](./screenshots/github-actions-ci-v1.png)
+
 ## Running the Project
 
 Install dependencies:
