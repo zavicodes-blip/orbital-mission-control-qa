@@ -1,50 +1,196 @@
 # Orbital Mission Control QA
 
-A space-themed QA automation portfolio project built for practicing modern front-end testing workflows with React, TypeScript, Vite, Git, and Playwright.
+A space-themed QA automation portfolio project built with React, TypeScript, Vite, Git, and Playwright.
 
-This project simulates an orbital mission control dashboard used to monitor spacecraft fleet status, mission queues, and operational alerts.
+This project simulates an orbital mission control dashboard used to monitor spacecraft fleet status, mission queues, and operational alerts. It was built as a production-style QA portfolio project to demonstrate front-end testing, login validation, regression coverage, Page Object Model structure, and clean Git milestone history.
 
 ## Project Purpose
 
-The goal of this project is to demonstrate software quality assurance skills through a realistic mission operations interface. The application is designed to support future automated testing with Playwright, including login validation, dashboard verification, UI state checks, and regression testing.
+The goal of this project is to demonstrate modern software quality assurance skills through a realistic mission operations interface.
+
+This repository shows the ability to:
+
+* Build and test a React + TypeScript application
+* Write automated end-to-end tests with Playwright
+* Organize tests using the Page Object Model
+* Separate test data from test logic
+* Validate both positive and negative login scenarios
+* Verify dashboard UI elements through regression tests
+* Generate and capture Playwright HTML reports
+* Maintain a clean Git history with milestone-based commits
 
 ## Tech Stack
 
-- React
-- TypeScript
-- Vite
-- Playwright
-- Git
+* React
+* TypeScript
+* Vite
+* Playwright
+* Git
 
-## Current Features
+## Application Features
 
-- Mission control login screen
-- Operations dashboard
-- Space-themed background
-- Glassmorphism user interface
-- Fleet Status cards with spacecraft assets
-- Mission Queue panel
-- Operational Alerts panel
-- Responsive dashboard layout
+* Mission operator login screen
+* Login validation for valid, invalid, and empty credentials
+* Operations dashboard
+* Space-themed background
+* Glassmorphism user interface
+* Fleet Status cards with spacecraft assets
+* Mission Queue panel
+* Operational Alerts panel
+* Responsive dashboard layout
+
+## Test Coverage
+
+The Playwright test suite currently covers:
+
+* Login page smoke test
+* Successful operator login
+* Invalid username/password validation
+* Empty username/password validation
+* Missing username validation
+* Missing password validation
+* Dashboard verification after login
+
+Current full test suite result:
+
+```text
+7 passed
+```
+
+## Test Architecture
+
+The test suite is organized with a clean QA automation structure:
+
+```text
+tests
+│   app.spec.ts
+│   dashboard.spec.ts
+│   login.spec.ts
+│
+├───data
+│       users.ts
+│
+└───pages
+        DashboardPage.ts
+        LoginPage.ts
+```
+
+### Page Object Model
+
+The project uses Page Object Model classes to keep locators and reusable actions separate from test assertions.
+
+Examples:
+
+* `LoginPage.ts` handles login page actions and validation checks
+* `DashboardPage.ts` handles dashboard visibility checks
+
+### Test Data Separation
+
+Test credentials are stored separately in:
+
+```text
+tests/data/users.ts
+```
+
+This keeps the test logic cleaner and easier to maintain.
+
+## Demo Credentials
+
+Valid login credentials for the demo application:
+
+```text
+Username: operator@mission.local
+Password: orbit123
+```
 
 ## Screenshots
 
-### Dashboard V1
+### Dashboard
 
 ![Dashboard V1](./screenshots/dashboard-v1.png)
 
-## Testing Plan
+### Playwright Test Run
 
-Playwright testing will be added next. Planned test coverage includes:
+![Playwright Tests V1](./screenshots/playwright-tests-v1.png)
 
-- Login page loads correctly
-- User can complete the login flow
-- Dashboard loads after login
-- Fleet Status cards are visible
-- Mission Queue items are visible
-- Operational Alerts are visible
-- Core dashboard UI elements remain stable during regression testing
+### Playwright HTML Report
 
-## Project Status
+![Playwright Report V1](./screenshots/playwright-report-v1.png)
 
-Current status: Front-end dashboard completed. Playwright test automation coming next.
+### Login Validation
+
+![Login Validation V1](./screenshots/login-validation-v1.png)
+
+### Updated Login Validation Test Report
+
+![Playwright Report Login Validation V1](./screenshots/playwright-report-login-validation-v1.png)
+
+## Running the Project
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Run the production build check:
+
+```bash
+npm run build
+```
+
+Run the full Playwright test suite:
+
+```bash
+npx playwright test
+```
+
+Run only the login tests:
+
+```bash
+npx playwright test tests/login.spec.ts
+```
+
+Open the Playwright HTML report:
+
+```bash
+npx playwright show-report
+```
+
+## Current Project Status
+
+Current status: Core application and Playwright automation foundation completed.
+
+Completed milestones:
+
+* React + TypeScript + Vite project setup
+* Mission operator login page
+* Operations dashboard
+* Space-themed UI and spacecraft assets
+* Login validation
+* Playwright configuration
+* Smoke test
+* Positive login test
+* Negative login validation tests
+* Dashboard verification test
+* Page Object Model implementation
+* Test data separation
+* HTML reporting
+* Portfolio screenshots
+* Clean milestone-based Git commits
+
+## Next Planned Improvements
+
+Future improvements may include:
+
+* Additional dashboard regression tests
+* Alert filtering or state-based UI checks
+* Accessibility-focused assertions
+* CI test execution with GitHub Actions or GitLab CI
+* Expanded README documentation with test strategy notes
