@@ -26,6 +26,7 @@ This repository shows the ability to:
 * Vite
 * Playwright
 * Git
+* GitHub Actions
 
 ## Application Features
 
@@ -163,6 +164,18 @@ Open the Playwright HTML report:
 npx playwright show-report
 ```
 
+## Continuous Integration
+
+This project includes a GitHub Actions workflow that runs on pushes and pull requests to the `master` branch.
+
+The CI workflow:
+
+* Installs dependencies
+* Installs Playwright browsers
+* Runs the production build
+* Runs the full Playwright test suite
+* Uploads the Playwright HTML report as a workflow artifact
+
 ## Current Project Status
 
 Current status: Core application and Playwright automation foundation completed.
@@ -184,6 +197,7 @@ Completed milestones:
 * HTML reporting
 * Portfolio screenshots
 * Clean milestone-based Git commits
+* GitHub Actions CI workflow for Playwright test execution
 
 ## Next Planned Improvements
 
@@ -192,5 +206,5 @@ Future improvements may include:
 * Additional dashboard regression tests
 * Alert filtering or state-based UI checks
 * Accessibility-focused assertions
-* CI test execution with GitHub Actions or GitLab CI
+* GitHub Actions status badge in README
 * Expanded README documentation with test strategy notes
