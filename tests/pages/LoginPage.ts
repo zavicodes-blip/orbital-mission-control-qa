@@ -5,12 +5,14 @@ export class LoginPage {
 
   readonly usernameInput: Locator;
   readonly passwordInput: Locator;
+  readonly errorMessage: Locator;
   readonly loginButton: Locator;
   readonly heading: Locator;
 
   constructor(page: Page) {
     this.page = page;
 
+    this.errorMessage = page.getByRole('alert');
     this.usernameInput = page.getByLabel(/username/i);
     this.passwordInput = page.getByLabel(/password/i);
     this.loginButton = page.getByRole('button', {
@@ -29,6 +31,14 @@ export class LoginPage {
   async verifyLoaded() {
     await expect(this.heading).toBeVisible();
   }
+
+  async verifyLoginError(message: string) {
+  await expect(this.errorMessage).toHaveText(message);
+}
+
+  async verifyLoginPageVisible() {
+  await expect(this.heading).toBeVisible();
+}
 
   async login(username: string, password: string) {
     await this.usernameInput.fill(username);
