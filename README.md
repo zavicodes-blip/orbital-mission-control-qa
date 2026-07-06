@@ -51,11 +51,15 @@ The Playwright test suite currently covers:
 * Missing username validation
 * Missing password validation
 * Dashboard verification after login
+* Dashboard metric value validation
+* Spacecraft fleet card and telemetry validation
+* Mission queue priority and status validation
+* Operational alert severity and spacecraft validation
 
 Current full test suite result:
 
 ```text
-7 passed
+11 passed
 ```
 
 ## Test Architecture
@@ -196,6 +200,7 @@ Completed milestones:
 * Positive login test
 * Negative login validation tests
 * Dashboard verification test
+* Detailed dashboard regression tests
 * Page Object Model implementation
 * Test data separation
 * HTML reporting

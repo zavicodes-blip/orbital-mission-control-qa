@@ -51,9 +51,17 @@ These tests are important because authentication failures are common regression 
 
 ### Dashboard Regression Coverage
 
-The dashboard test verifies that core mission operation sections are visible after login, including mission overview information, fleet status, mission queue content, and operational alerts.
+The dashboard regression tests verify that core mission operation sections are visible after login, including mission overview information, fleet status, mission queue content, and operational alerts.
 
-This protects the most important dashboard UI elements from accidental changes.
+The detailed dashboard regression tests now validate:
+
+* Dashboard metric values
+* Spacecraft fleet cards
+* Spacecraft telemetry details
+* Mission queue names, IDs, priorities, and statuses
+* Operational alert titles, severities, and related spacecraft
+
+This protects the most important dashboard UI elements and mission data from accidental changes.
 
 ## Test Architecture
 
@@ -105,7 +113,7 @@ This keeps credentials and test input data out of the test logic. Separating dat
 The current full Playwright suite result is:
 
 ```text
-7 passed
+11 passed
 ```
 
 ## How to Run Tests
