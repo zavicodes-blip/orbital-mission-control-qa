@@ -83,6 +83,14 @@ tests
         LoginPage.ts
 ```
 
+## QA Documentation
+
+Additional QA documentation is included in the `docs` folder:
+
+* [Test Strategy](./docs/TEST_STRATEGY.md)
+* [Manual Test Cases](./docs/MANUAL_TEST_CASES.md)
+* [Defect Reports](./docs/DEFECT_REPORTS.md)
+
 ### Page Object Model
 
 The project uses Page Object Model classes to keep locators and reusable actions separate from test assertions.
