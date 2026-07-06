@@ -134,6 +134,10 @@ Password: orbit123
 
 ![GitHub Actions CI V1](./screenshots/github-actions-ci-v1.png)
 
+### Dashboard Regression Test Report
+
+![Dashboard Regression Test Report V1](./screenshots/playwright-report-dashboard-regression-v1.png)
+
 ## Running the Project
 
 Install dependencies:
