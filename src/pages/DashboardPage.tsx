@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import spaceBackground from '../assets/space-background.png'
 import {
   alerts,
@@ -7,6 +8,23 @@ import {
 } from '../data/missionData'
 
 function DashboardPage() {
+  const [missionFilter, setMissionFilter] = useState('')
+
+  const normalizedMissionFilter = missionFilter.trim().toLowerCase()
+
+  const filteredMissionQueue = missionQueue.filter((mission) => {
+    const searchableMissionText = [
+      mission.id,
+      mission.name,
+      mission.priority,
+      mission.status,
+    ]
+      .join(' ')
+      .toLowerCase()
+
+    return searchableMissionText.includes(normalizedMissionFilter)
+  })
+
   return (
     <main
       className="dashboard-shell"
@@ -99,23 +117,37 @@ function DashboardPage() {
           <div className="panel">
             <div className="panel-header">
               <h2>Mission Queue</h2>
-              <span>{missionQueue.length} Missions</span>
+              <span>{filteredMissionQueue.length} Missions</span>
             </div>
 
-            <div className="mission-list">
-              {missionQueue.map((mission) => (
-                <article className="mission-row" key={mission.id}>
-                  <div>
-                    <strong>{mission.name}</strong>
-                    <p>{mission.id}</p>
-                  </div>
+            <label className="mission-filter">
+              Filter missions
+              <input
+                type="search"
+                value={missionFilter}
+                onChange={(event) => setMissionFilter(event.target.value)}
+                placeholder="Search by mission, ID, priority, or status"
+              />
+            </label>
 
-                  <div className="mission-meta">
-                    <span>{mission.priority}</span>
-                    <span>{mission.status}</span>
-                  </div>
-                </article>
-              ))}
+            <div className="mission-list">
+              {filteredMissionQueue.length > 0 ? (
+                filteredMissionQueue.map((mission) => (
+                  <article className="mission-row" key={mission.id}>
+                    <div>
+                      <strong>{mission.name}</strong>
+                      <p>{mission.id}</p>
+                    </div>
+
+                    <div className="mission-meta">
+                      <span>{mission.priority}</span>
+                      <span>{mission.status}</span>
+                    </div>
+                  </article>
+                ))
+              ) : (
+                <p className="empty-state">No missions match the current filter.</p>
+              )}
             </div>
           </div>
 

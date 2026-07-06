@@ -43,6 +43,8 @@ export class DashboardPage {
   readonly spacecraftCards: Locator;
   readonly missionRows: Locator;
   readonly alertRows: Locator;
+  readonly missionFilterInput: Locator;
+  readonly emptyMissionState: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -58,6 +60,8 @@ export class DashboardPage {
     this.spacecraftCards = page.locator('.spacecraft-card');
     this.missionRows = page.locator('.mission-row');
     this.alertRows = page.locator('.alert-row');
+    this.missionFilterInput = page.getByLabel(/filter missions/i);
+    this.emptyMissionState = page.getByText(/no missions match the current filter/i);
   }
 
   async verifyLoaded() {
@@ -73,6 +77,22 @@ export class DashboardPage {
     await expect(this.fleetStatusSection).toBeVisible();
     await expect(this.missionQueueSection).toBeVisible();
     await expect(this.operationalAlertsSection).toBeVisible();
+  }
+
+  async filterMissions(searchText: string) {
+    await this.missionFilterInput.fill(searchText);
+  }
+
+  async verifyMissionVisible(missionName: string) {
+    await expect(this.missionRows.filter({ hasText: missionName })).toBeVisible();
+  }
+
+  async verifyMissionNotVisible(missionName: string) {
+    await expect(this.missionRows.filter({ hasText: missionName })).toHaveCount(0);
+  }
+
+  async verifyMissionFilterEmptyState() {
+    await expect(this.emptyMissionState).toBeVisible();
   }
 
   async verifyDashboardMetrics(metrics: DashboardMetric[]) {

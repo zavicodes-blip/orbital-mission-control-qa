@@ -52,3 +52,34 @@ test('displays operational alerts with severity and spacecraft details', async (
   await dashboardPage.verifyLoaded();
   await dashboardPage.verifyOperationalAlerts(expectedOperationalAlerts);
 });
+
+test('filters mission queue by mission name', async ({ page }) => {
+  const dashboardPage = new DashboardPage(page);
+
+  await dashboardPage.verifyLoaded();
+  await dashboardPage.filterMissions('Telemetry');
+
+  await dashboardPage.verifyMissionVisible('Telemetry Sweep');
+  await dashboardPage.verifyMissionNotVisible('Sentinel Watch');
+  await dashboardPage.verifyMissionNotVisible('Orbital Reserve');
+});
+
+test('filters mission queue by mission ID', async ({ page }) => {
+  const dashboardPage = new DashboardPage(page);
+
+  await dashboardPage.verifyLoaded();
+  await dashboardPage.filterMissions('M-1043');
+
+  await dashboardPage.verifyMissionVisible('Orbital Reserve');
+  await dashboardPage.verifyMissionNotVisible('Sentinel Watch');
+  await dashboardPage.verifyMissionNotVisible('Telemetry Sweep');
+});
+
+test('shows empty state when mission filter has no matches', async ({ page }) => {
+  const dashboardPage = new DashboardPage(page);
+
+  await dashboardPage.verifyLoaded();
+  await dashboardPage.filterMissions('not-real');
+
+  await dashboardPage.verifyMissionFilterEmptyState();
+});
