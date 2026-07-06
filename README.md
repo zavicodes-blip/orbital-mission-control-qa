@@ -6,6 +6,31 @@ A space-themed QA automation portfolio project built with React, TypeScript, Vit
 
 This project simulates an orbital mission control dashboard used to monitor spacecraft fleet status, mission queues, and operational alerts. It was built as a production-style QA portfolio project to demonstrate front-end testing, login validation, regression coverage, Page Object Model structure, and clean Git milestone history.
 
+## Portfolio Summary
+
+Orbital Mission Control QA is a full-stack-style front-end QA portfolio project that demonstrates how a QA engineer can build, validate, document, and continuously test a mission-operations dashboard.
+
+The project includes a React + TypeScript application, Playwright end-to-end automation, positive and negative login validation, detailed dashboard regression tests, mission queue filtering tests, manual QA test cases, defect reports, and GitHub Actions CI.
+
+This project is designed to demonstrate practical QA skills including:
+
+* Writing maintainable automated tests with Playwright
+* Organizing tests with the Page Object Model
+* Separating test data from test logic
+* Validating positive and negative user flows
+* Testing dashboard data and UI regression behavior
+* Documenting manual test cases and resolved defects
+* Running automated tests through GitHub Actions
+* Maintaining a clean milestone-based Git history
+
+## Current Project Snapshot
+
+* Automated test suite: `14 passing Playwright tests`
+* CI status: GitHub Actions workflow passing
+* Test architecture: Page Object Model with separated test data
+* QA documentation: Test strategy, manual test cases, and defect reports
+* Main tested workflows: login validation, dashboard regression, mission queue filtering
+
 ## Project Purpose
 
 The goal of this project is to demonstrate modern software quality assurance skills through a realistic mission operations interface.
