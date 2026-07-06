@@ -1,5 +1,7 @@
 # Orbital Mission Control QA
 
+[![Playwright Tests](https://github.com/zavicodes-blip/orbital-mission-control-qa/actions/workflows/playwright.yml/badge.svg?branch=master)](https://github.com/zavicodes-blip/orbital-mission-control-qa/actions/workflows/playwright.yml)
+
 A space-themed QA automation portfolio project built with React, TypeScript, Vite, Git, and Playwright.
 
 This project simulates an orbital mission control dashboard used to monitor spacecraft fleet status, mission queues, and operational alerts. It was built as a production-style QA portfolio project to demonstrate front-end testing, login validation, regression coverage, Page Object Model structure, and clean Git milestone history.
