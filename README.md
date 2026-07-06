@@ -52,6 +52,9 @@ The Playwright test suite currently covers:
 * Missing password validation
 * Dashboard verification after login
 * Dashboard metric value validation
+* Mission queue filtering by mission name
+* Mission queue filtering by mission ID
+* Mission queue empty-state validation
 * Spacecraft fleet card and telemetry validation
 * Mission queue priority and status validation
 * Operational alert severity and spacecraft validation
@@ -59,7 +62,7 @@ The Playwright test suite currently covers:
 Current full test suite result:
 
 ```text
-11 passed
+14 passed
 ```
 
 ## Test Architecture
@@ -138,6 +141,18 @@ Password: orbit123
 
 ![Dashboard Regression Test Report V1](./screenshots/playwright-report-dashboard-regression-v1.png)
 
+### Mission Queue Filtering
+
+![Mission Filter V1](./screenshots/mission-filter-v1.png)
+
+### Mission Filter Playwright Report
+
+![Mission Filter Playwright Report V1](./screenshots/playwright-report-mission-filter-v1.png)
+
+### Mission Filter GitHub Actions CI
+
+![Mission Filter GitHub Actions CI V1](./screenshots/github-actions-mission-filter-v1.png)
+
 ## Running the Project
 
 Install dependencies:
@@ -205,6 +220,8 @@ Completed milestones:
 * Negative login validation tests
 * Dashboard verification test
 * Detailed dashboard regression tests
+* Mission queue filtering
+* Mission queue filtering tests
 * Page Object Model implementation
 * Test data separation
 * HTML reporting
